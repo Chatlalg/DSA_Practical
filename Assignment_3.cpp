@@ -4,7 +4,7 @@ template <typename T>
 class queue{
     public:
     int front ,rear;
-    int *arr;
+    T *arr;
     int length;
     queue(int size){
         front=0;
@@ -32,7 +32,7 @@ class queue{
             cout<<"em"<<endl;
             return;
         }
-        cout<<"element deleted"<<arr[front]<<endl;
+        cout<<"element deleted"<<arr[front].height<<arr[front].weight<<endl;
         front=(front+1)%length;
         if(front==rear){
             front=rear=0;
@@ -41,24 +41,33 @@ class queue{
     void dislplay(){
         int temp=front;
         while(temp!=rear){
-            cout<<arr[temp]<<endl;
+            cout<<arr[temp].height<<arr[temp].weight<<endl;
             temp=(temp+1)%length;
         }
     }
 
 };
+
+struct yash{
+    int height;
+    long long weight;
+};
+
 int main(){
-    queue<int> *q=new queue<int>(10);
-    cout<<q->is();
-    q->insert(10);
-    q->insert(51);
-    q->insert(1351);
+    queue<yash> *q=new queue<yash>(10);
+    yash mera_yashu;
+    mera_yashu.height=5;
+    mera_yashu.weight=198471938;
+    // cout<<q->is();
+    q->insert(mera_yashu);
+    // q->insert(mera_yashu);
+    // q->insert(1351);
     q->dislplay();
     q->remove();
     q->dislplay();
-    q->remove();
-    q->remove();
-    q->remove();
-    q->remove();
+    // q->remove();
+    // q->remove();
+    // q->remove();
+    // q->remove();
     return 0;
 }
